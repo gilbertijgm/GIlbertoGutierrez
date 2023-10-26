@@ -1,0 +1,92 @@
+[
+    {
+      "id": 1,
+      "title": "Laptop",
+      "descripcion": "Potente computadora portátil",
+      "precio": "1500",
+      "thumbnail": "laptop.jpg",
+      "code": "LT001",
+      "stock": "20"
+    },
+    {
+      "id": 2,
+      "title": "Teléfono",
+      "descripcion": "Smartphone de última generación",
+      "precio": "800",
+      "thumbnail": "telefono.jpg",
+      "code": "PH002",
+      "stock": "15"
+    },
+    {
+      "id": 3,
+      "title": "Tablet",
+      "descripcion": "Dispositivo portátil con pantalla táctil",
+      "precio": "500",
+      "thumbnail": "tablet.jpg",
+      "code": "TB003",
+      "stock": "10"
+    },
+    {
+      "id": 4,
+      "title": "Televisor",
+      "descripcion": "Pantalla de alta definición",
+      "precio": "2000",
+      "thumbnail": "televisor.jpg",
+      "code": "TV004",
+      "stock": "5"
+    },
+    {
+      "id": 5,
+      "title": "Reproductor de música",
+      "descripcion": "Dispositivo para escuchar música",
+      "precio": "100",
+      "thumbnail": "reproductor.jpg",
+      "code": "MU005",
+      "stock": "30"
+    },
+    {
+      "id": 6,
+      "title": "Cámara",
+      "descripcion": "Captura de imágenes y videos",
+      "precio": "700",
+      "thumbnail": "camara.jpg",
+      "code": "CM006",
+      "stock": "12"
+    },
+    {
+      "id": 7,
+      "title": "Auriculares",
+      "descripcion": "Dispositivo para escuchar sonido",
+      "precio": "150",
+      "thumbnail": "auriculares.jpg",
+      "code": "AU007",
+      "stock": "25"
+    },
+    {
+      "id": 8,
+      "title": "Impresora",
+      "descripcion": "Dispositivo para imprimir documentos",
+      "precio": "300",
+      "thumbnail": "impresora.jpg",
+      "code": "IM008",
+      "stock": "8"
+    },
+    {
+      "id": 9,
+      "title": "Mouse",
+      "descripcion": "Dispositivo de entrada para computadoras",
+      "precio": "50",
+      "thumbnail": "mouse.jpg",
+      "code": "MS009",
+      "stock": "40"
+    },
+    {
+      "id": 10,
+      "title": "Teclado",
+      "descripcion": "Dispositivo de entrada para computadoras",
+      "precio": "80",
+      "thumbnail": "teclado.jpg",
+      "code": "KB010",
+      "stock": "35"
+    }
+  ]
