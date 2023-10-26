@@ -1,25 +1,3 @@
-/*
-const fs = require('fs').promises;
-
-class ProductManager {
-    constructor(filename) {
-        this.filename = filename;
-    }
-
-    async getAllProducts() {
-        const data = await fs.readFile(this.filename, 'utf-8');
-        return JSON.parse(data);
-    }
-
-    async getProductById(pid) {
-        const products = await this.getAllProducts();
-        return products.find(product => product.id === pid);
-    }
-}
-
-module.exports = ProductManager;
-*/
-
 const fs = require('fs').promises;
 
 class ProductManager {
