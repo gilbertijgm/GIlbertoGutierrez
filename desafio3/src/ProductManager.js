@@ -27,6 +27,8 @@ class ProductManager {
             throw new Error('Error al leer el producto.');
         }
     }
+
+   
 }
 
 module.exports = ProductManager;
