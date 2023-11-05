@@ -7,14 +7,14 @@ import { ProductManager } from '../manager/productManager.js';
 const productManager = new ProductManager('./src/data/products.json');
 
 
-router.get('/', async (req, res) => {
-    try {
-        const carts = await cartManager.getCarts();
-        res.status(200).json(carts);
-    } catch (error) {
-        res.status(500).json(error.message)
-    }
-});
+// router.get('/', async (req, res) => {
+//     try {
+//         const carts = await cartManager.getCarts();
+//         res.status(200).json(carts);
+//     } catch (error) {
+//         res.status(500).json(error.message)
+//     }
+// });
 
 router.get('/:id', async(req, res) => {
     try {
@@ -36,20 +36,22 @@ router.post('/', async(req, res) => {
     }
 })
 
-router.post('/:idCart/product/:idPro', async(req, res) =>{
+router.post('/:idCart/product/:idProd', async(req, res) =>{
     
     try {
-        
-        const { idCart } = req.params;
-        const cart = await cartManager.getCartById(idCart);
-        const { idPro } = req.params;
-        const product = await productManager.getProductById(idPro);
-
-        const addProduct = await cartManager.addProductToCart(cart, product);
-        console.log(addProduct);
-        res.status(200).send(addProduct);
+        const { idProd, idCart } = req.params;
+        const cart = await cartManager.getCartById(Number(idCart));
+        const product = await productManager.getProductById(Number(idProd)); 
+        if (cart && product) {
+            const updatedCart = await cartManager.addProductToCart(Number(idCart), Number(idProd));
+            const addedProduct = updatedCart.products.find(p => p.product === Number(idProd));
+            res.status(201).json({ message: 'Product agregado al carrito', addedProduct, cart: updatedCart });
+        } else {
+            res.status(404).json({ error: 'Carrito o producto no encontrado' });
+        }
     } catch (error) {
-        res.status(500).json(error.message)
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
     
 })

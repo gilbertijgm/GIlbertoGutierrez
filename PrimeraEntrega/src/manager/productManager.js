@@ -27,22 +27,46 @@ export class ProductManager {
         return maxId;
     }
 
+    // async createProduct(obj) {
+    //     try {
+    //         const product = {
+    //             id: await this.#getMaxId() + 1,
+    //             status: true, //el estatus viene por defecto
+    //             ...obj
+    //         }
+    //         const products = await this.getProducts()
+           
+    //         products.push(product)
+    //         await fs.promises.writeFile(this.path, JSON.stringify(products));
+    //         return product;
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
     async createProduct(obj) {
         try {
+            const products = await this.getProducts();
+            const existingProduct = products.find(product => product.code === obj.code);
+    
+            if (existingProduct) {
+                throw new Error('Producto con el mismo código ya existe.');
+            }
+    
             const product = {
                 id: await this.#getMaxId() + 1,
-                status: true, //el estatus viene por defecto
+                status: true,
                 ...obj
-            }
-            const products = await this.getProducts()
-           
-            products.push(product)
+            };
+    
+            products.push(product);
             await fs.promises.writeFile(this.path, JSON.stringify(products));
             return product;
         } catch (error) {
-            console.log(error);
+            throw new Error(error)
         }
     }
+    
+    
 
     async getProductById(id) {
         try {
