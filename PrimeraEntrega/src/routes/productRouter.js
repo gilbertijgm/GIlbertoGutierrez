@@ -52,22 +52,28 @@ router.get('/:id', async(req, res) => {
     }
 })
 
-router.post('/', productValidator, async(req, res) => {
+
+
+
+router.post('/', async(req, res) => {
     try {
         const product = {...req.body };
         const productCreated = await productManager.createProduct(product);
         const { id, title, description, code, price, status, stock, category, thumbnail} = productCreated;
+        //const { id, title, description, code, price, stock, thumbnail} = productCreated;
         const productResponse = {
-            id, title, description, code, price, status, stock, category, thumbnail 
+            id, title, description, code, price, status, stock, category, thumbnail
+           // id, title, description, code, price,  stock,  thumbnail 
         }
         //res.status(200).json(productResponse);
-        socketServer.emit("productos", await store.getProducts());
+        socketServer.emit("products", await productManager.getProducts());
         res.status(200).send({ message: "Producto agregado con exito." });
     } catch (error) {
         //res.status(500).json(error.message)
         res.status(404).send({error: "No se pudo agregar el producto.",message: error.message,});
     }
 })
+
 
 
 
